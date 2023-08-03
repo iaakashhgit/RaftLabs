@@ -42,7 +42,7 @@ const updateData = async (req, res) => {
     try {
         let body = req.body
         if (body.searchId) {
-            await RaftLabsSchema.updateOne({ _id: body.searchId }, { $set: { Location: body.location } })
+            await RaftLabsSchema.updateOne({ _id: body.searchId }, { $set: { location: body.location } })
             return res.status(200).json({ message: "Document updated successfully" });
         }
     } catch (error) {
