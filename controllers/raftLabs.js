@@ -9,12 +9,12 @@ const raftLabsCreate = async (req, res) => {
         let { name, age, address } = req.body
         let obj = {
             _id: UUID.v4(),
-            Name: name,
-            Age: age,
-            Address: address
+            name,
+            age,
+            address
         }
-        await new RaftLabsSchema(obj).save()
-        return res.status(200).json({ message: "Data Created successfully" })
+        const response = await new RaftLabsSchema(obj).save()
+        return res.status(200).json({ message: "Data Created successfully", data: response })
     } catch (error) {
         console.log("raftLabsCreate error: ", error)
     }
